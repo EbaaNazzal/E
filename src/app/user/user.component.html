@@ -1,0 +1,82 @@
+<div class="container">
+    
+    <div class="row">
+    </div>
+</div>
+<div class="container-fluid backColor">
+<!-- <div class="backColor"> -->
+    <div class="row title" >
+        <div class="col-md-6">
+            <span class="bold TextSize">Manage  </span><span class="TitleColor">User </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 message" *ngIf="showMsg" >
+            <span style="float: left;">Successfully {{msg}}</span>
+            <span class="glyphicon glyphicon-remove" style="float: right; cursor: pointer;" *ngIf="showMsg" (click) = "showMsg = false"></span>
+        </div>
+    </div>
+    <div class="row">
+  
+    </div>
+   
+<!-- </div> -->
+<!-- border-bottom-style: outset; -->
+<div class="contentSection">
+<div class="row">
+<div class="col-md-4">
+    <span class="bold">Manage Users</span>
+</div>
+</div>
+
+<div class="row tableBox">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th> 
+                        <span style="float: left;">User Name</span>
+                    </th>
+                    
+                        <th> 
+                            <span style="float: left;">Full Name</span>
+                        </th>
+                        <th> 
+                            <span style="float: left;">Email</span>
+                        </th>
+             
+                        <th>
+                        <span style="float: left;">Action</span>
+                    </th>        
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let user of users ">
+                <td >{{user.userName}}</td>
+                <td >{{user.fullName}}</td>
+                <td>{{user.email}}</td>
+                 <td>
+                    <button class="glyphicon glyphicon-pencil action-btn" (click) ='getByUserName(user.userName)'  ></button>
+                    <button class="glyphicon glyphicon-trash action-btn" style="margin-left: 5px;" (click)='delete(user.userName)' ></button>
+                </td>
+               
+            </tr> 
+          <tr *ngIf = 'users?.length == 0'>
+              <td  colspan="4" >
+            <p style="text-align: center; margin-left: 10px;"> NO data available in table</p>
+        </td>
+    </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="row " style="padding-bottom: 20px; ">  
+    <div class="col-md-4">
+        <input type="button" value="Add User" class="btn btn-primary" routerLink="/register" />
+    </div>
+</div>
+</div>
+</div> 
+

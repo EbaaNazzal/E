@@ -1,0 +1,48 @@
+<div class="container">
+<form [formGroup]="logInForm" (ngSubmit)="OnLogin()">
+    <div class="row space">
+        <div class="form-group">
+            <div class="col-md-2">
+                <label class="control-label">User Name</label>
+            </div>
+            <div class="col-md-4"> 
+                <input class="form-control" formControlName="userName" [(ngModel)]="ologin.userName"/>
+                <div *ngIf="logInForm.controls['userName'].invalid && (logInForm.controls['userName'].dirty || logInForm.controls['userName'].touched)||showMessageError">
+                        <span *ngIf="logInForm.controls['userName'].errors?.required"  class="alert errorMsg" > * Required</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row space">
+        <div class="form-group">
+            <div class="col-md-2">
+                <label class="control-label">Password</label>
+            </div>
+            <div class="col-md-4">
+                <input type="password" class="form-control" formControlName="password"[(ngModel)]="ologin.password"/>
+                <div *ngIf="logInForm.controls['password'].invalid && (logInForm.controls['password'].dirty || logInForm.controls['password'].touched)||showMessageError">
+                    <span *ngIf="logInForm.controls['password'].errors?.required"  class="alert errorMsg" > * Required</span>
+            </div>         
+           </div>
+        </div>
+        <br />
+        <br />
+        <!-- <div class="row space">
+            <div class="form-group" style="margin-left:188px">
+                <div class="col-md-6 col-md-offset-5" style="margin-left:12px">
+                    <input type="checkbox" /> Remebe Me
+                    <label class="control-label"formControlName="RememberMe" ></label>
+                </div>
+            </div>
+        </div> -->
+        <div class="row space">
+            <div class="col-md-6 col-md-offset-">
+                <input type="button" class="btn btn-primary" style="width:200px; margin-left:250px" value="LogIn" (click)="OnLogin()"  />
+                <input type="button" class="btn  btn-success space" style="width:200px; margin-left:250px" value="Register" routerLink="/register" />
+
+            </div>
+        </div>
+    </div>
+
+</form>
+</div>
